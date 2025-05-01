@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>Lista de Receitas</h1>
+
+    <div class="formulario-tabela">
+        <div class="formulario">
+            <div>
+                <label for="campo-nome">Nome</label>
+                <input type="text" id="campo-nome" placeholder="Digite um texto" [(ngModel)]="nome">
+            </div>
+            
+            <div>
+                <label for="campo-valor">Valor</label>
+                <input type="text" id="campo-valor" [(ngModel)]="valor">
+            </div>
+            
+            <button (click)="salvarReceita()">Salvar</button>
+        </div>
+        <div class="tabela">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(receita of receitas; track receita){
+                        <tr>
+                            <td>{{receita.id}}</td>
+                            <td>{{receita.nome}}</td>
+                            <td>{{receita.valor}}</td>
+                            <td>
+                                <button (click)="editar(receita)">Editar</button>
+                                <button (click)="apagar(receita)">Apagar</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
